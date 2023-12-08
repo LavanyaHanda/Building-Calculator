@@ -1,0 +1,46 @@
+# Define a function called calculate that takes in three parameters: firstnum, secondnum, and operator.
+def calculate(firstnum, secondnum, operator):
+    # Check if the operator is "+", perform addition, and return the result.
+    if operator == "+":
+        return firstnum + secondnum
+    # Check if the operator is "-", perform subtraction, and return the result.
+    elif operator == "-":
+        return firstnum - secondnum
+    # Check if the operator is "*", perform multiplication, and return the result.
+    elif operator == "*":
+        return firstnum * secondnum
+    # Check if the operator is "/", perform division, and return the result.
+    elif operator == "/":
+        return firstnum / secondnum
+    # Check if the operator is "%", perform modulo division, and return the result.
+    elif operator == "%":
+        return firstnum % secondnum
+    # If the operator is none of the above, raise a ValueError with the message "Invalid operator".
+    else:
+        raise ValueError("Invalid operator")
+
+
+try:
+    # Prompt the user to enter the first number and convert it to an integer.
+    firstnum = int(input("Enter the first number: "))
+    # Prompt the user to enter the second number and convert it to an integer.
+    secondnum = int(input("Enter the second number: "))
+    # Prompt the user to enter the operator.
+    operator = input("Enter the operator (+, -, *, /, %): ")
+
+    # Call the calculate function with the provided values and store the result in the result variable.
+    result = calculate(firstnum, secondnum, operator)
+    # Print the result.
+    print("Result:", result)
+
+except ValueError:
+    # Catch a ValueError if the user enters non-numeric values for numbers and print an error message.
+    print("Invalid input. Please enter numeric values for numbers.")
+
+except ZeroDivisionError:
+    # Catch a ZeroDivisionError if the user tries to divide by zero and print an error message.
+    print("Error: Cannot divide by zero.")
+
+except Exception as e:
+    # Catch any other type of error and print the error message.
+    print("An error occurred:", str(e))
